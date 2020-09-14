@@ -7,7 +7,6 @@ import { TimeUnit } from '@pimp-my-pr/shared/domain';
 import { AddEditRepositoryDialogData, Repository } from '@pimp-my-pr/pmp-web/repository/domain';
 import { SnackbarService } from '@pimp-my-pr/pmp-web/shared/domain';
 import { AddEditRepositoryDialogService } from './add-edit-repository-dialog.service';
-import { Router } from '@angular/router';
 
 @UntilDestroy()
 @Component({
@@ -32,7 +31,6 @@ export class AddEditRepositoryDialogComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<AddEditRepositoryDialogComponent>,
     private snackbarService: SnackbarService,
-    private router: Router,
     private addEditRepositoryDialogService: AddEditRepositoryDialogService
   ) {
     if (!!data) {
@@ -108,9 +106,8 @@ export class AddEditRepositoryDialogComponent implements OnInit, OnDestroy {
         maxWaitingTime
       })
       .subscribe(
-        payload => {
+        () => {
           this.snackbarService.open('Repository has been added');
-          this.router.navigate(['repositories', payload.repository.id]);
           this.dialogRef.close();
         },
         error => {
