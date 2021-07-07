@@ -25,7 +25,7 @@ export class RepositoryEffects {
     run: (action: fromRepositoryActions.AddRepository) => {
       return this.repositoryDataService
         .addRepository(action.payload)
-        .pipe(map(resp => new fromRepositoryActions.AddRepositorySuccess({ repository: resp })));
+        .pipe(map(() => new fromRepositoryActions.AddRepositorySuccess()));
     },
     onError: (action: fromRepositoryActions.AddRepository, error: HttpErrorResponse) => {
       return new fromRepositoryActions.AddRepositoryFail(error);

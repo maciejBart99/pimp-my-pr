@@ -9,7 +9,6 @@ import { ListReviewersStatisticsHandler } from './queries/list-reviewers-statist
 import { RepositoryFacade } from './repository.facade';
 import { DeleteRepositoryHandler } from './commands/delete-repository/delete-repository.handler';
 import { EditRepositoryHandler } from './commands/edit-repository/edit-repository.handler';
-import { GetSingleRepositoryDataHandler } from './queries/get-single-repository-data/get-single-repository-data.handler';
 
 const QueryHandlers = [
   AddRepositoryHandler,
@@ -17,7 +16,6 @@ const QueryHandlers = [
   EditRepositoryHandler,
   GetRepositoryStatisticsHandler,
   GetReviewerStatisticsHandler,
-  GetSingleRepositoryDataHandler,
   ListRepositoriesStatisticsHandler,
   ListReviewersStatisticsHandler,
   ListRepositoriesHandler

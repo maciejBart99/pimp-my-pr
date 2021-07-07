@@ -69,18 +69,12 @@ describe('Repository', () => {
         });
     });
 
-    test('valid request', done => {
+    test('valid request', () => {
       return request(app.getHttpServer())
         .post('/repository')
         .set('Authorization', `Bearer ${token}`)
         .send({ repositoryUrl: 'https://github.com/valueadd-poland/pimp-my-pr' })
-        .expect(201)
-        .then(response => {
-          expect(response.body).toHaveProperty('data');
-          expect(response.body).toHaveProperty('data.id');
-          expect(response.body.error).toBe(null);
-          done();
-        });
+        .expect(201, { error: null });
     });
   });
 
